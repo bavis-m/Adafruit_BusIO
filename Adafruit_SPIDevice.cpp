@@ -77,6 +77,13 @@ Adafruit_SPIDevice::Adafruit_SPIDevice(int8_t cspin, int8_t sckpin,
  */
 Adafruit_SPIDevice::~Adafruit_SPIDevice() { delete _spiSetting; }
 
+void Adafruit_SPIDevice::changeFreq(uint32_t freq)
+{
+  delete _spiSetting;
+  _freq = freq;
+  _spiSetting = new SPISettings(freq, _dataOrder, _dataMode);
+}
+
 /*!
  *    @brief  Initializes SPI bus and sets CS pin high
  *    @return Always returns true because there's no way to test success of SPI

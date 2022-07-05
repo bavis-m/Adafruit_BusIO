@@ -87,6 +87,7 @@ public:
                      uint8_t dataMode = SPI_MODE0);
   ~Adafruit_SPIDevice();
 
+  void changeFreq(uint32_t freq);
   bool begin(void);
   bool read(uint8_t *buffer, size_t len, uint8_t sendvalue = 0xFF);
   bool write(const uint8_t *buffer, size_t len,
